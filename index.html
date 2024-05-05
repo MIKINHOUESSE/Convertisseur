@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertisseur</title>
+    <link rel="stylesheet" href="/Formulaire/style.css">
+</head>
+<body>
+    <fieldset class="container">
+        <legend></legend>
+        <form action="" method="post">
+            <h2>Convertisseur</h2>
+            <div>
+                <span>Montant en CFA: </span>
+                <input type="text" name="cfa" id="cfa">
+            </div>
+            <div>
+                <span>Montant en Euro: </span>
+                <input type="text" name="euro" id="euro">
+            </div>
+            <div>
+                <span>Montant en Naira: </span>
+                <input type="text" name="naira" id="naira">
+            </div>
+            <div class="di">
+                <input type="button" value="Convertir" onclick="convertir()">
+                <input type="button" value="Annuler" onclick="Annuler()">
+            </div>
+        </form>
+    </fieldset>
+
+    <script>
+        let cfa = document.getElementById("cfa");
+        let euro = document.getElementById("euro");
+        let naira = document.getElementById("naira");
+        function convertir(){
+            if(cfa.value){
+                if(cfa.value < 0){
+                    alert("Entrez une valeur positive");
+                }
+                else{
+                    euro.value = cfa.value*0.0015;
+                    naira.value = cfa.value*1.85;
+                }
+            }
+            else if(euro.value){
+                if(euro.value < 0){
+                    alert("Entrez une valeur positive");
+                }
+                else{
+                    cfa.value = euro.value*655.89;
+                    naira.value = euro.value*1068.13;
+                }
+            }
+            else if(naira.value){
+                if(naira.value < 0){
+                    alert("Entrez une valeur positive");
+                }
+                else{
+                    euro.value = naira.value*0.00093;
+                    cfa.value = naira.value*0.61;
+                }
+            }      
+        }
+        
+        function Annuler(){
+            euro.value = "";
+            naira.value = "";
+            cfa.value = "";
+        }
+    </script>
+</body>
+</html>
